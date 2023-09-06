@@ -1,0 +1,26 @@
+---
+version: 2.1
+
+orbs:
+  python: circleci/python@1.1.0
+
+jobs:
+  api-call-job:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Run Python script
+          command: python remote_access.py
+
+    
+
+workflows:
+  version: 2
+  build-and-call-api:
+    jobs:
+      - remote-access
