@@ -5,7 +5,7 @@ orbs:
   python: circleci/python@1.1.0
 
 jobs:
-  api-call-job:
+  remote-access:
     executor: python/default
     steps:
       - checkout
