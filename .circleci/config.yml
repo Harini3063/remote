@@ -21,6 +21,6 @@ jobs:
 
 workflows:
   version: 2
-  connnect-and-access:
+  connect-and-access:
     jobs:
       - remote-access

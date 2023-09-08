@@ -1,5 +1,8 @@
 import json
 import requests
+
+
+
 hostname_=""
 username_=""
 password_=""
@@ -14,6 +17,8 @@ def get_response(api_endpoint, header, data):
     #print(hostname_,username_,password_)
     return hostname_,username_,password_
 
+
+
 def call_token():
     token_URL = "https://pimapi.arconnet.com:7443/arconToken"
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -26,11 +31,13 @@ def call_token():
     tok = response.json().get('access_token')  # Use .get() to handle missing keys
     return tok
 
+
+
 def call_api(ip, service_type, user, DBname, time):
     token = call_token()
     base = "https://pimapi.arconnet.com:7443"
     api_endpoint = base + "/api/ServicePassword/GetTargetDevicePasskey"
-    authen = f"Bearer {token}"  # 'Bearer' should be capitalized
+    authen = f"Bearer {token}"  
     header = {"Content-Type": "application/json", "Authorization": authen}
     
     # Define the body content as a list of dictionaries
@@ -42,8 +49,6 @@ def call_api(ip, service_type, user, DBname, time):
             "DbInstanceName": "",
             "OpenForHours": "1"
         }]
-        
-    
 
     val = {"ServerIp": ip, "ServiceTypeID": service_type, "UserName": user, "DbInstanceName": DBname, "OpenforHours": time}
     
