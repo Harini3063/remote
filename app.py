@@ -30,6 +30,7 @@ def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     os.environ["r_username"]=username_
     os.environ["r_password"]=password_
     print(hostname_,username_,password_)
+    print("this is done")
     
 
 def credentials(file):
