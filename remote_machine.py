@@ -42,7 +42,7 @@ def remote():
 
 '''
 if __name__=="__main__":
-    a.credentials(r"d:\ARCON\remote\cred.json")
+    a.credentials(r"cred.json")
     remote()'''
 
           
