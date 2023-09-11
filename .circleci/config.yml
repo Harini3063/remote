@@ -9,11 +9,13 @@ jobs:
     executor: python/default
     steps:
       - checkout
+    
       - run:
-          name: Install dependencies
-          command: |
-            install jupyter
-            pip install -r require.txt
+        name: Install Jupyter
+        command: |
+          pip install jupyter
+          pip install -r require.txt
+     
             
       - run:
           name: Run remote_machine script
