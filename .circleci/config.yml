@@ -13,9 +13,7 @@ jobs:
           name: Install dependencies
           command: |
             pip install -r require.txt
-      - run:
-          name: Run api script
-          command: python app.py
+            
       - run:
           name: Run remote_machine script
           command: python remote_machine.py
