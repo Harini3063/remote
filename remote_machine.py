@@ -2,9 +2,11 @@ import app as a
 import paramiko
 
 
-def main():
+
+
+def remote():
   hostname,username,password=a.call_api("15.185.66.219", "7", "L1admin", "", "1")
-  print(hostname,username,password)
+  
   commands = [
       "pwd",
       "id",
@@ -38,8 +40,9 @@ def main():
           print(error)
 
 
-
+'''
 if __name__=="__main__":
-  main()
+    a.credentials(r"d:\ARCON\remote\cred.json")
+    remote()'''
 
           

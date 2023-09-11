@@ -1,0 +1,6 @@
+{
+    "base": "https://pimapi.arconnet.com:7443",
+    "username": "bXlsb2dpbjE=",
+    "password": "bXlsb2dpbkA=",
+    "grant_type": "password"
+}
