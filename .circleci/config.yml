@@ -19,7 +19,8 @@ jobs:
           command: python remote_machine.py
       - run:
           name: Run demo script
-          command: python demo.py
+          command: |
+            jupyter nbconvert --to notebook --execute demo.ipynb
             
 
 workflows:
