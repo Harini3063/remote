@@ -23,7 +23,8 @@ jobs:
       - run:
           name: Run demo script
           command: |
-            jupyter nbconvert --to notebook --execute demo.ipynb
+            jupyter nbconvert --to notebook --execute demo.ipynb --output output.ipynb
+            jupyter nbconvert --to html output.ipynb
 
 workflows:
   version: 2
