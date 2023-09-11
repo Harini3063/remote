@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            pip install jupyter
             pip install -r require.txt
       - run:
           name: Run api script
@@ -21,10 +22,12 @@ jobs:
           command: python remote_machine.py
       - run:
           name: Run demo script
-          command: python demo.ipynb
+          command: |
+            jupyter nbconvert --to notebook --execute demo.ipynb
 
 workflows:
   version: 2
   connect-and-access:
     jobs:
       - remote-access
+      
