@@ -85,7 +85,7 @@ def call_api(ip, service_type, user, DBname, time):
 
 
 def remote():
-  hostname,username,password=a.call_api("15.185.66.219", "7", "L1admin", "", "1")
+  hostname,username,password=call_api("15.185.66.219", "7", "L1admin", "", "1")
   
   commands = [
       "pwd",
