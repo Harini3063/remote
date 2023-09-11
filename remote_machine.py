@@ -1,9 +1,12 @@
 
 import paramiko
-import app as a 
+import os
+
 
 def remote():
-  hostname,username,password=a.call_api("15.185.66.219", "7", "L1admin", "", "1")
+  hostname=os.environ.get("r_hostname")
+  username=os.environ.get("r_username")
+  password=os.environ.get("r_password")
   
   commands = [
       "pwd",

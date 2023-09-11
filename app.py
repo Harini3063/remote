@@ -1,5 +1,6 @@
 import json
 import requests
+import os
 
 
 
@@ -25,8 +26,11 @@ def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     hostname_=result[0]["ServerIp"]
     username_=result[0]["UserName"]
     password_=result[0]["Password"]
-    #print(hostname_,username_,password_)
-    return hostname_,username_,password_
+    os.environ["r_hostname"]=hostname_
+    os.environ["r_username"]=username_
+    os.environ["r_password"]=password_
+    print(hostname_,username_,password_)
+    
 
 def credentials(file):
     try:
