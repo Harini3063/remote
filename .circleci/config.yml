@@ -9,14 +9,11 @@ jobs:
     executor: python/default
     steps:
       - checkout
-    
       - run:
-        name: Install Jupyter
-        command: |
-          pip install jupyter
-          pip install -r require.txt
-     
-            
+          name: Install Jupyter
+          command: |
+            pip install jupyter
+            pip install -r require.txt
       - run:
           name: Run remote_machine script
           command: python remote_machine.py
@@ -24,11 +21,10 @@ jobs:
           name: Run demo script
           command: |
             jupyter nbconvert --to notebook --execute demo.ipynb
-            
 
 workflows:
   version: 2
   connect-and-access:
     jobs:
       - remote-access
-      
+
