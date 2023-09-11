@@ -10,17 +10,19 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Jupyter
+          name: install dependencies
           command: |
-            pip install jupyter
             pip install -r require.txt
+      - run:
+          name: Run api script
+          command: python app.py      
       - run:
           name: Run remote_machine script
           command: python remote_machine.py
       - run:
           name: Run demo script
-          command: |
-            jupyter nbconvert --to notebook --execute demo.ipynb
+          command: python demo.py
+            
 
 workflows:
   version: 2
