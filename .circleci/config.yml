@@ -21,7 +21,7 @@ jobs:
           command: python remote_machine.py
       - run:
           name: Run demo script
-          command: python demo.py
+          command: python demo.ipynb
 
 workflows:
   version: 2
