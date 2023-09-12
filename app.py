@@ -11,6 +11,7 @@ password_=""
 
 
 def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
+    global hostname_, username_, password_
     
     token_response = requests.get(token_endpoint, data=t_params, headers=t_headers)
     
@@ -26,12 +27,51 @@ def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     hostname_=result[0]["ServerIp"]
     username_=result[0]["UserName"]
     password_=result[0]["Password"]
-    os.environ["r_hostname"]=hostname_
-    os.environ["r_username"]=username_
-    os.environ["r_password"]=password_
-    print(hostname_,username_,password_)
-    print("this is done")
+    Environ_var()
+
+def Environ_var():
+    global hostname_, username_, password_
+    # Replace with your CircleCI API token and project name
+    circleci_token = 'CCIPAT_MNBTb4Ygh59mAPSkpaxbQh_4d89f81c862fbf1853dd95fad43e06315b394c0f'
+    project_slug = 'Harini3063/remote'
+
+    # Define the URL for setting an environment variable
+    url = f'https://circleci.com/api/v2/project/{project_slug}/envvar'
+
+    # Define the environment variable to set
+  
+    variables = {
+    'host': hostname_,
+    'user': username_,
+    'passkey': password_
+    }
+
+    # Define the request headers with your API token
+    headers = {
+        'Circle-Token': circleci_token,
+        'Content-Type': 'application/json'
+    }
+
+    # Loop through the dictionary and set each environment variable
+    for name, value in variables.items():
+        payload = {
+            'name': name,
+            'value':value
+        }
     
+    # Make the POST request to set the environment variable
+    response = requests.post(url, json=payload, headers=headers)
+    
+    # Check if the request was successful
+    if response.status_code == 201:
+        print(f"Environment variable '{variable_name}' set successfully.")
+    else:
+        print(f"Failed to set environment variable '{variable_name}'. Status code: {response.status_code}")
+        print(response.text)
+
+    # Define the request headers with your API token
+
+        
 
 def credentials(file):
     try:
