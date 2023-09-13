@@ -14,14 +14,11 @@ jobs:
           command: |
             pip install -r require.txt
       - run:
-          name: Run api script
-          command: python app.py      
-      - run:
-          name: Run remote_machine script
-          command: python remote_machine.py
+          name: Run sdk file
+          command: python access.py      
       - run:
           name: Run demo script
-          command: python demo.py
+          command: python demo1.py
             
 
 workflows:
