@@ -14,8 +14,11 @@ jobs:
           command: |
             pip install -r require.txt
       - run:
-          name: Run sdk file
-          command: python access.py      
+          name: retrieving creds
+          command: python access.py  
+      - run:
+          name: accessing the machine
+          command: python machine_access.py       
       - run:
           name: Run demo script
           command: python demo1.py
