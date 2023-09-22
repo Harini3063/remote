@@ -9,7 +9,7 @@ def retrieve_credentials_from_vault():
     client = hvac.Client(url=vault_url)
 
     # Authenticate to Vault using a token or your preferred method
-    vault_token = "hvs.gIhi58C7HeN1rGJWi7C2I2kY"  # Update with your Vault token
+    vault_token = "hvs.twv58uQtJR68sbuvyQ4R5I4a"  # Update with your Vault token
     client.token = vault_token
 
     # Define the path from which you want to retrieve credentials

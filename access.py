@@ -7,7 +7,7 @@ vault_url = "http://127.0.0.1:8200"  # Update with your Vault server URL
 client = hvac.Client(url=vault_url)
 
 # Authenticate to Vault using a token or your preferred method
-vault_token = "hvs.gIhi58C7HeN1rGJWi7C2I2kY"  # Update with your Vault token
+vault_token = "hvs.twv58uQtJR68sbuvyQ4R5I4a"  # Update with your Vault token
 client.token = vault_token
 
 hostname_ = ""
