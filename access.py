@@ -22,9 +22,9 @@ def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     
     response = requests.post(api_endpoint, headers=header, data=json.dumps(data))  
     result = response.json()['Result']
-    hostname_=result[0]["ServerIp"]
-    username_=result[0]["UserName"]
-    password_=result[0]["Password"]
+    hostname_=result[1]["ServerIp"]
+    username_=result[1]["UserName"]
+    password_=result[1]["Password"]
     print("success retrieved")
 
 
