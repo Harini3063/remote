@@ -2,16 +2,12 @@ import json
 import requests
 import paramiko
 
-#import http.client
-
-
-
 hostname_=""
 username_=""
 password_=""
 
 
-
+# gets the  response from api call
 def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     global hostname_, username_, password_
     
@@ -30,8 +26,11 @@ def get_response(token_endpoint,api_endpoint, t_headers,t_params,data):
     username_=result[0]["UserName"]
     password_=result[0]["Password"]
     print("success retrieved")
-    
 
+
+
+
+# reads the credentials
 def credentials(file):
     try:
         with open(file) as f:
@@ -48,6 +47,9 @@ def credentials(file):
         raise Exception(f"The file {file} does not exist.")
 
 
+
+
+#makes an api call
 def call_api(ip, service_type, user, DBname, time):
     
     token_endpoint=base_url + "/arconToken"
@@ -74,6 +76,10 @@ def call_api(ip, service_type, user, DBname, time):
     body_content.append(val)   
     return get_response(token_endpoint,api_endpoint, t_headers,t_params,body_content)  
 
+
+
+
+#connects to the remote machine
 def remote():
   hostname=hostname_
   username=username_
