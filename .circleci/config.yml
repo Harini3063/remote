@@ -15,7 +15,7 @@ jobs:
             pip install -r require.txt
       - run:
           name: Run sdk file
-          command: python access.py      
+          command: python remote_access_sdk.py      
       - run:
           name: Run test script
           command: python test_script.py
