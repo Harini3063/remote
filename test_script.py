@@ -1,4 +1,4 @@
-import access as a 
+import remote_access_sdk as a 
 
 
 a.credentials(r"cred.json")
